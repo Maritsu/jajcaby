@@ -1,1 +1,1 @@
-[![Prototype]({https://external-preview.redd.it/QzgyOSci6HZX1GTXls9z5muFX5kjGdhOoTCZ2gQ08eE.png?width=320&crop=smart&format=pjpg&auto=webp&s=6bedc73e719cd5a0c17275dbe0116feb2e0e3dbd})]({https://v.redd.it/hw0c42t17pb91/DASH_360.mp4?source=fallback} "Game prototype")
+![Prototype](https://raw.githubusercontent.com/Maritsu/jajcaby/master/concept.mp4)
