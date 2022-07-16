@@ -4,24 +4,24 @@
 #include <iostream>
 
 #include "RenderWindow.hpp"
+// #include "board.hpp"
 
 int main(int argc, char *argv[]) {
-	if (SDL_Init(SDL_INIT_VIDEO) > 0) {
+	if (SDL_Init(SDL_INIT_VIDEO) > 0)
 		std::cout << "SDL_INIT FUCKED UP: SDL_ERR: " << SDL_GetError() << std::endl;
-		return 1;
-	}
-	if (!(IMG_Init(IMG_INIT_PNG))) {
+	if (!(IMG_Init(IMG_INIT_PNG)))
 		std::cout << "IMG_INIT FUCKED UP: ING_ERR: " << SDL_GetError() << std::endl;
-		return 1;
-	}
 
 	RenderWindow window("Jajcaby DEV", 1280, 720);
 
-	SDL_Texture* egg = window.loadTexture("res/img/eggW.png");
+	// SDL_Texture* egg = window.loadTexture("res/img/eggW.png");
 
 	bool running = true;
 
 	SDL_Event event;
+	// Board gameBoard;
+	// gameBoard.clean();
+	// gameBoard.start();
 
 	while (running) {
 		while (SDL_PollEvent(&event)) {
@@ -29,9 +29,9 @@ int main(int argc, char *argv[]) {
 				running = false;
 		}
 
-		window.clear();
-		window.render(egg);
-		window.display();
+		window.clean();
+		// window.render(egg);
+		// window.display();
 	}
 
 	window.clean();
