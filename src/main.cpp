@@ -17,6 +17,8 @@ int main(int argc, char *argv[]) {
 
 	RenderWindow window("Jajcaby DEV", 1280, 720);
 
+	SDL_Texture* egg = window.loadTexture("res/img/eggW.png");
+
 	bool running = true;
 
 	SDL_Event event;
@@ -26,6 +28,10 @@ int main(int argc, char *argv[]) {
 			if (event.type == SDL_QUIT)
 				running = false;
 		}
+
+		window.clear();
+		window.render(egg);
+		window.display();
 	}
 
 	window.clean();
