@@ -1,38 +1,35 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+
 #include <iostream>
 
-int main(int argc, char* argv[]) {
+#include "RenderWindow.hpp"
 
-    SDL_Window *window;                    // Declare a pointer
+int main(int argc, char *argv[]) {
+	if (SDL_Init(SDL_INIT_VIDEO) > 0) {
+		std::cout << "SDL_INIT FUCKED UP: SDL_ERR: " << SDL_GetError() << std::endl;
+		return 1;
+	}
+	if (!(IMG_Init(IMG_INIT_PNG))) {
+		std::cout << "IMG_INIT FUCKED UP: ING_ERR: " << SDL_GetError() << std::endl;
+		return 1;
+	}
 
-    SDL_Init(SDL_INIT_VIDEO);              // Initialize SDL2
+	RenderWindow window("Jajcaby DEV", 1280, 720);
 
-    // Create an application window with the following settings:
-    window = SDL_CreateWindow(
-        "Jajcaby",                         // window title
-        SDL_WINDOWPOS_UNDEFINED,           // initial x position
-        SDL_WINDOWPOS_UNDEFINED,           // initial y position
-        800,                               // width, in pixels
-        600,                               // height, in pixels
-        SDL_WINDOW_OPENGL                  // flags - see below
-    );
+	bool running = true;
 
-    // Check that the window was successfully created
-    if (window == NULL) {
-        // In the case that the window could not be made...
-        printf("Could not create window: %s\n", SDL_GetError());
-        return 1;
-    }
+	SDL_Event event;
 
-    // The window is open: could enter program loop here (see SDL_PollEvent())
+	while (running) {
+		while (SDL_PollEvent(&event)) {
+			if (event.type == SDL_QUIT)
+				running = false;
+		}
+	}
 
-    SDL_Delay(3000);  // Pause execution for 3000 milliseconds, for example
+	window.clean();
+	SDL_Quit();
 
-    // Close and destroy the window
-    SDL_DestroyWindow(window);
-
-    // Clean up
-    SDL_Quit();
     return 0;
 }
