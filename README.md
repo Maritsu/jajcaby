@@ -1,2 +1,2 @@
 # jajcaby
-Warcaby ale jajkami / Eggers
+Warcaby ale jajkami
